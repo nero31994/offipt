@@ -5,21 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IPTV Player</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.12.6/shaka-player.compiled.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <input type="text" id="searchInput" placeholder="Search Channels" onkeyup="filterChannels()">
-      <ul id="channelList"></ul>
-    </div>
-    <div class="player-container">
-      <video id="videoPlayer" width="100%" controls></video>
-    </div>
+  <div id="container">
+    <aside id="sidebar">
+      <input type="text" id="search" placeholder="Search channels...">
+      <ul id="channel-list">
+        <!-- Channel list will be dynamically populated -->
+      </ul>
+    </aside>
+
+    <main id="main-content">
+      <video id="shaka-video" controls autoplay></video>
+    </main>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.12.6/shaka-player.compiled.js"></script>
   <script src="channels.js"></script>
   <script src="player.js"></script>
-  <script src="remote.js"></script>
 </body>
 </html>

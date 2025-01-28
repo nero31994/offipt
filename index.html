@@ -8,13 +8,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>IPTV Website</h1>
-  <div id="video-container">
-    <video id="video" controls autoplay></video>
-  </div>
-  <div id="channel-container">
-    <h2>Channels</h2>
-    <div id="channel-list"></div>
+  <h1>NERO TV</h1>
+
+  <div id="main-container">
+    <!-- Video Player -->
+    <div id="video-container">
+      <video id="video" controls autoplay></video>
+    </div>
+
+    <!-- Channel List -->
+    <div id="channel-container">
+      <h2>Channels</h2>
+      <input 
+        type="text" 
+        id="search-bar" 
+        placeholder="Search channels..." 
+        autocomplete="off"
+      />
+      <div id="channel-box">
+        <!-- Channels will be dynamically inserted here -->
+      </div>
+    </div>
   </div>
 
   <script src="channels.js"></script>

@@ -1,73 +1,127 @@
-/* General styling */
+/* General Styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #222;
-  color: #fff;
+  font-family: 'Arial', sans-serif;
+  background-color: #1f1f1f; /* Dark gray background */
+  color: #e0e0e0; /* Light gray text */
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
 h1 {
-  margin-top: 20px;
+  margin: 20px 0;
+  font-size: 24px;
+  color: #d3d3d3;
 }
 
+/* Main container styling */
+#main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Video container */
 #video-container {
-  margin: 20px auto;
-  width: 80%;
-  max-width: 800px;
+  flex: 2; /* Takes up 2/3 of the space on larger screens */
+  min-width: 300px;
+  max-width: 700px;
 }
 
 video {
   width: 100%;
-  border: 2px solid #fff;
+  border: 2px solid #444; /* Dark gray border */
+  border-radius: 8px;
+  background-color: #000; /* Black background for video */
 }
 
+/* Channel container */
 #channel-container {
-  margin: 20px auto;
-  width: 90%;
-  max-width: 1000px;
-  text-align: left;
-  background-color: #333;
+  flex: 1; /* Takes up 1/3 of the space on larger screens */
+  min-width: 300px;
+  max-width: 400px;
+  background-color: #2b2b2b; /* Slightly lighter gray */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #channel-container h2 {
-  margin-bottom: 15px;
-  color: #f9a825;
+  margin-bottom: 10px;
+  color: #e0e0e0; /* Light gray text */
 }
 
-#channel-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+/* Search bar styling */
+#search-bar {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #555; /* Dark gray border */
+  border-radius: 8px;
+  background-color: #3a3a3a; /* Medium gray */
+  color: #e0e0e0; /* Light gray text */
+  margin-bottom: 15px;
+}
+
+#search-bar:focus {
+  border-color: #888; /* Lighter gray border on focus */
+}
+
+#search-bar::placeholder {
+  color: #aaa; /* Subtle gray for placeholder */
+}
+
+/* Channel list */
+#channel-box {
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: #3a3a3a; /* Medium gray background */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .channel {
-  flex: 1 1 calc(33% - 30px);
-  background-color: #444;
-  border: 1px solid #555;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
+  background-color: #444; /* Darker gray for buttons */
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 6px;
   cursor: pointer;
-  color: #fff;
+  color: #e0e0e0; /* Light gray text */
+  text-align: left;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .channel:hover {
-  background-color: #555;
-  transform: scale(1.05);
+  background-color: #555; /* Lighter gray on hover */
+  transform: scale(1.02);
 }
 
+#channel-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+#channel-box::-webkit-scrollbar-thumb {
+  background: #666; /* Medium gray scrollbar */
+  border-radius: 4px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .channel {
-    flex: 1 1 calc(50% - 30px);
+  #main-container {
+    flex-direction: column; /* Stacks video and channel list vertically */
   }
-}
 
-@media (max-width: 480px) {
-  .channel {
-    flex: 1 1 calc(100% - 30px);
+  #video-container {
+    order: 1; /* Video remains at the top */
+  }
+
+  #channel-container {
+    order: 2; /* Channel list goes below video */
+    max-height: 300px;
   }
 }

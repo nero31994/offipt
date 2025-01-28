@@ -1,6 +1,7 @@
 // Get DOM elements
 const videoElement = document.getElementById('video');
-const channelList = document.getElementById('channel-list');
+const channelBox = document.getElementById('channel-box');
+const searchBar = document.getElementById('search-bar');
 
 // Function to load a channel
 async function loadChannel(channel) {
@@ -26,14 +27,28 @@ async function loadChannel(channel) {
   }
 }
 
-// Render the channel list
-channels.forEach((channel) => {
-  const channelButton = document.createElement('div');
-  channelButton.className = 'channel';
-  channelButton.textContent = channel.name;
-  channelButton.addEventListener('click', () => loadChannel(channel));
-  channelList.appendChild(channelButton);
+// Function to render channels
+function renderChannels(filter = '') {
+  // Clear the current channel list
+  channelBox.innerHTML = '';
+
+  // Filter and render channels
+  channels
+    .filter(channel => channel.name.toLowerCase().includes(filter.toLowerCase()))
+    .forEach(channel => {
+      const channelButton = document.createElement('div');
+      channelButton.className = 'channel';
+      channelButton.textContent = channel.name;
+      channelButton.addEventListener('click', () => loadChannel(channel));
+      channelBox.appendChild(channelButton);
+    });
+}
+
+// Event listener for the search bar
+searchBar.addEventListener('input', (e) => {
+  const filter = e.target.value;
+  renderChannels(filter);
 });
 
-// Load the first channel by default
-loadChannel(channels[0]);
+// Initial rendering of channels
+renderChannels();

@@ -36,4 +36,4 @@ channels.forEach((channel) => {
 });
 
 // Load the first channel by default
-loadChannel(channels[0]); 
+loadChannel(channels[0]);

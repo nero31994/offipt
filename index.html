@@ -3,25 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPTV Player</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.12.6/shaka-player.compiled.js"></script>
+  <title>IPTV Website</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.5.0/shaka-player.compiled.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="container">
-    <aside id="sidebar">
-      <input type="text" id="search" placeholder="Search channels...">
-      <ul id="channel-list">
-        <!-- Channel list will be dynamically populated -->
-      </ul>
-    </aside>
-
-    <main id="main-content">
-      <video id="shaka-video" controls autoplay></video>
-    </main>
+  <h1>IPTV Website</h1>
+  <div id="video-container">
+    <video id="video" controls autoplay></video>
   </div>
+  <div id="channel-list"></div>
 
   <script src="channels.js"></script>
-  <script src="player.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

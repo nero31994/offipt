@@ -84,7 +84,7 @@ video {
 
 /* Channel list */
 #channel-box {
-  max-height: 300px;
+  max-height: 210px;
   overflow-y: auto;
   background-color: #3a3a3a;
   padding: 10px;
@@ -131,6 +131,6 @@ video {
   }
 
   #channel-container {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }
